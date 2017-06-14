@@ -69,6 +69,9 @@ ADD virtuoso/clean-logs.sh /clean-logs.sh
 # Add startup script
 ADD virtuoso/virtuoso.sh /virtuoso.sh
 
+# Add dum template
+ADD virtuoso/dump.template.nq /dump.template.nq
+
 ENV SPARQL_UPDATE true
 
 ## ASKOMICS ###################################################################
@@ -76,7 +79,7 @@ ENV SPARQL_UPDATE true
 # AskOmics github repo
 ENV ASKOMICS_URL https://github.com/xgaia/askomics.git
 # AskOmics commit
-ENV ASKOMICS_COMMIT 67b66aa877738679f84babdad4013f46a4d9675c
+ENV ASKOMICS_COMMIT bb4952f82d3f9d59f4f35046d24e2f5f226bfdb4
 
 RUN git config --global http.sslVerify false
 RUN git clone ${ASKOMICS_URL} /usr/local/askomics/
@@ -93,7 +96,9 @@ RUN chmod +x startAskomics.sh
 RUN rm -rf /usr/local/askomics/venv && \
     ./startAskomics.sh -b
 
+ADD monitor_traffic.sh /
 ADD start.sh ./
+RUN chmod +x start.sh /virtuoso.sh /monitor_traffic.sh
 
 EXPOSE 6543
 CMD ["./start.sh"]

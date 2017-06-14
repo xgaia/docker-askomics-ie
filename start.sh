@@ -1,5 +1,39 @@
 #! /bin/bash
 
+# get user info
+username="Galaxy" #FIXME: get the galaxy username
+pw_hash="" # no password
+salt="" # no salt
+# askomics_apikey=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 20 ; echo '')
+
+# sed the dump tempalate
+cp /dump.template.nq /dump.nq
+sed -i "s@__USERNAME__@$username@g" /dump.nq
+sed -i "s/__EMAIL__/$USER_EMAIL/g" /dump.nq
+sed -i "s@__PASSWORD_HASH__@$pw_hash@g" /dump.nq
+sed -i "s@__SALT__@$salt@g" /dump.nq
+
+sed -i "s@__ASKOMICS_KEY_ID__@galaxy_5Dvp@g" /dump.nq
+sed -i "s@__ASKOMICS_KEY_NAME__@galaxy@g" /dump.nq
+sed -i "s@__ASKOMICS_API_KEY__@$ASKOMICS_API_KEY@g" /dump.nq
+
+sed -i "s@__GALAXY_ID__@$galaxy_id@g" /dump.nq
+sed -i "s@__GALAXY_URL__@$GALAXY_URL@g" /dump.nq
+sed -i "s@__GALAXY_KEY__@$API_KEY@g" /dump.nq
+
+mkdir /data/toLoad
+mv /dump.nq /data/toLoad
+
+# Monitor traffic
+/monitor_traffic.sh &
+
+# Start Virtuoso
 /virtuoso.sh &
 
+# Wait for virtuoso to be up
+while ! wget -o /dev/null http://localhost:8890/conductor; do
+    sleep 1s
+done
+
+# Start AskOmics
 ./startAskomics.sh -r -d dev
