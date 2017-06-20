@@ -4,7 +4,6 @@
 username="Galaxy" #FIXME: get the galaxy username
 pw_hash="" # no password
 salt="" # no salt
-# askomics_apikey=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 20 ; echo '')
 
 # sed the dump tempalate
 cp /dump.template.nq /dump.nq
@@ -23,6 +22,10 @@ sed -i "s@__GALAXY_KEY__@$API_KEY@g" /dump.nq
 
 mkdir /data/toLoad
 mv /dump.nq /data/toLoad
+
+# Link galaxy uplaoded datasets into askomics upload dir
+mkdir -p $ASKOMICS_FILES_DIR/upload
+ln -s /import $ASKOMICS_FILES_DIR/upload/$username
 
 # Monitor traffic
 /monitor_traffic.sh &
