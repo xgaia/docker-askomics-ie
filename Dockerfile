@@ -79,7 +79,7 @@ ENV SPARQL_UPDATE true
 # AskOmics github repo
 ENV ASKOMICS_URL https://github.com/xgaia/askomics.git
 # AskOmics commit
-ENV ASKOMICS_COMMIT 1c1812a9edd0389657580492a254ba59804250d8
+ENV ASKOMICS_COMMIT 2b61cdef966530e2365a9d810c05c8b2662a6999
 
 RUN git clone ${ASKOMICS_URL} /usr/local/askomics/
 
