@@ -28,9 +28,11 @@ mkdir -p $ASKOMICS_FILES_DIR/upload
 ln -s /import $ASKOMICS_FILES_DIR/upload/$username
 
 # Monitor traffic
+chmod +x /monitor_traffic.sh
 /monitor_traffic.sh &
 
 # Start Virtuoso
+chmod +x /virtuoso.sh
 /virtuoso.sh &
 
 # Wait for virtuoso to be up
@@ -39,4 +41,4 @@ while ! wget -o /dev/null http://localhost:8890/conductor; do
 done
 
 # Start AskOmics
-./startAskomics.sh -r -d dev
+${ASKOMICS_DIR}/startAskomics.sh -r -d dev
