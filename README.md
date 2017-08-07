@@ -1,6 +1,6 @@
 # Docker AskOmics + Virtuoso (For Galaxy Interactive Environment)
 
-![Docker Build](https://img.shields.io/docker/pulls/xgaia/docker-askomics-virtuoso-ie.svg)
+![Docker Build](https://img.shields.io/docker/pulls/xgaia/askomics-ie.svg)
 [![Build Status](https://travis-ci.org/xgaia/docker-askomics-virtuoso-ie.svg?branch=master)](https://travis-ci.org/xgaia/docker-askomics-virtuoso-ie)
 
 AskOmics and Virtuoso dockerized
