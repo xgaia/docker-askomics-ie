@@ -5,7 +5,8 @@ MAINTAINER Xavier Garnier 'xavier.garnier@irisa.fr'
 # Environment variables
 ENV ASKOMICS="https://github.com/xgaia/askomics.git" \
     ASKOMICS_DIR="/usr/local/askomics" \
-    ASKOMICS_COMMIT="9816964e5d226888f6e4fd04e968e1fd9744adfe"
+    ASKOMICS_COMMIT="9816964e5d226888f6e4fd04e968e1fd9744adfe" \
+    SPARQL_UPDATE=true
 
 # Copy files
 COPY monitor_traffic.sh /monitor_traffic.sh
