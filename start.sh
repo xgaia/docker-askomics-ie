@@ -24,8 +24,8 @@ mkdir /data/toLoad
 mv /dump.nq /data/toLoad
 
 # Link galaxy uplaoded datasets into askomics upload dir
-mkdir -p $ASKOMICS_FILES_DIR/upload
-ln -s /import $ASKOMICS_FILES_DIR/upload/$username
+mkdir -p $ASKO_FILES_DIR/upload
+ln -s /import $ASKO_FILES_DIR/upload/$username
 
 # Monitor traffic
 chmod +x /monitor_traffic.sh
