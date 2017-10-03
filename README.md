@@ -1,7 +1,7 @@
 # Docker AskOmics + Virtuoso (For Galaxy Interactive Environment)
 
 ![Docker Build](https://img.shields.io/docker/pulls/askomics/askomics-ie.svg)
-[![Build Status](https://travis-ci.org/askomics/docker-askomics-virtuoso-ie.svg?branch=master)](https://travis-ci.org/askomics/docker-askomics-virtuoso-ie)
+[![Build Status](https://travis-ci.org/askomics/docker-askomics-ie.svg?branch=master)](https://travis-ci.org/askomics/docker-askomics-ie)
 
 AskOmics and Virtuoso dockerized
 
@@ -12,8 +12,8 @@ AskOmics and Virtuoso dockerized
 ## Or build
 
     # Clone the repo
-    git clone https://github.com/askomics/docker-askomics-virtuoso-ie.git
-    cd docker-askomics-virtuoso-ie
+    git clone https://github.com/askomics/docker-askomics-ie.git
+    cd docker-askomics-ie
     docker build -t askomics-ie .
 
 ## Run
