@@ -5,7 +5,7 @@ username="Galaxy" #FIXME: get the galaxy username
 pw_hash="" # no password
 salt="" # no salt
 
-# sed the dump tempalate
+# sed the dump template
 cp /dump.template.nq /dump.nq
 sed -i "s@__USERNAME__@$username@g" /dump.nq
 sed -i "s/__EMAIL__/$USER_EMAIL/g" /dump.nq
@@ -39,6 +39,14 @@ chmod +x /virtuoso.sh
 while ! wget -o /dev/null http://localhost:8890/conductor; do
     sleep 1s
 done
+
+# manage proxy
+if [[ $PROXY_PREFIX != "" ]]; then
+    # There is a proxy, export env for the askomics proxy
+    export ASKOCONFIG_app_colon_main_filter_hyphen_with='proxyprefix'
+    export ASKOCONFIG_filter_colon_proxyprefix_use='egg:PasteDeploy#prefix'
+    export ASKOCONFIG_filter_colon_proxyprefix_prefix=$PROXY_PREFIX
+fi
 
 # Start AskOmics
 ${ASKOMICS_DIR}/startAskomics.sh -r -d dev
