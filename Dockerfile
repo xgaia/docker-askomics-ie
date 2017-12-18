@@ -5,7 +5,7 @@ MAINTAINER Xavier Garnier 'xavier.garnier@irisa.fr'
 # Environment variables
 ENV ASKOMICS="https://github.com/askomics/askomics.git" \
     ASKOMICS_DIR="/usr/local/askomics" \
-    ASKOMICS_VERSION="17.09" \
+    ASKOMICS_VERSION="17.12" \
     SPARQL_UPDATE=true
 
 # Copy files
