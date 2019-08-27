@@ -14,7 +14,7 @@ COPY start.sh /start.sh
 # Install prerequisites, clone repository and install
 RUN apk update && \
     apk del openssl openssl-dev  && \
-    apk add bash make gcc g++ zlib-dev libzip-dev bzip2-dev xz-dev git python3 python3-dev nodejs nodejs-npm wget openldap-dev linux-headers && \
+    apk add bash make gcc g++ zlib-dev libzip-dev bzip2-dev xz-dev git python3 python3-dev nodejs nodejs-npm wget openldap-dev linux-headers sqlite && \
     git clone ${ASKOMICS_GIT_URL} ${ASKOMICS_DIR} && \
     cd ${ASKOMICS_DIR} && \
     git checkout ${ASKOMICS_GIT_VERSION} && \
