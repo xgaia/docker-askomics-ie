@@ -18,6 +18,7 @@ RUN apk update && \
     git clone ${ASKOMICS_GIT_URL} ${ASKOMICS_DIR} && \
     cd ${ASKOMICS_DIR} && \
     git checkout ${ASKOMICS_GIT_VERSION} && \
+    npm install gulp -g && \
     npm install --production && \
     chmod +x startAskomics.sh && \
     rm -rf /usr/local/askomics/venv && \
